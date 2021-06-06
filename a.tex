@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+% decent example of doing mathematics and proofs in LaTeX.
+% An Incredible degree of information can be found at
+% http://en.wikibooks.org/wiki/LaTeX/Mathematics
+
+% Use wide margins, but not quite so wide as fullpage.sty
+\marginparwidth 0.5in 
+\oddsidemargin 0.25in 
+\evensidemargin 0.25in 
+\marginparsep 0.25in
+\topmargin -1in 
+\textwidth 6in \textheight 9.6in
+% That's about enough definitions
+
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage{fancybox}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage[pdftex]{graphicx}
+\usepackage{cancel}
+\usepackage{fancyhdr}
+\usepackage{eurosym}
+\usepackage[dvips]{graphicx}
+%\usepackage{arcs}
+%\DeclareGraphicsExtensions{.png,.pdf,.jpg}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{pstricks-add}
+\usepackage{auto-pst-pdf}
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=black,
+%   hyperindex,
+    breaklinks
+}
+\usepackage{polynom}
+\usepackage{verbatim}
+\parskip=1.5mm
+\usepackage{wrapfig}
+
+\definecolor{verdeodi}{RGB}{53,113,105}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{fancybox}[1][]{
+	enhanced,
+	boxrule=1pt,arc=8pt,boxsep=0pt,
+	left=0.8em,right=0.8em,top=1ex,bottom=1ex,colback=verdeodi!20,colframe=verdeodi,#1
+}
+
+
+
+
+
+
+\makeatletter%%%%%%%%para referenciar ecuaciones en línea
+\newcommand*{\inlineequation}[2][]{%
+  \begingroup
+    % Put \refstepcounter at the beginning, because
+    % package `hyperref' sets the anchor here.
+    \refstepcounter{equation}%
+    \ifx\\#1\\%
+    \else
+      \label{#1}%
+    \fi
+    % prevent line breaks inside equation
+    \relpenalty=10000 %
+    \binoppenalty=10000 %
+    \ensuremath{%
+      % \displaystyle % larger fractions, ...
+      #2%
+    }%
+    \hfill~\@eqnnum %%%%si quieres que aparezca al lado de la ecuación quita \hfill
+  \endgroup
+}
+\makeatother
+
+%%%%% Genera los pies de Figuras y Tablas en itálicas y a tamaño footnote
+\usepackage[format=plain, labelformat=simple, labelsep=period, center]{caption}
+\renewcommand\thefigure{\arabic{figure}} % Genera numeración X
+\renewcommand\thetable{\arabic{table}} % Genera numeración X
+
+\title{Retos Matemáticos
+}
+\author{\href{mailto:jmanuel.sanchez@educarex.es}{José Manuel Sánchez Muñoz}}
+\date{\today}
+
+\begin{document}
+\renewcommand{\tablename}{Tabla} 
+
+\maketitle
+
+\thispagestyle{empty}
+
+\begin{fancybox}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\textbf{Ejercicio:} Obténgase el valor de $x$.
+\[\left(x-\frac{1}{x}\right)^{^1\!\!/\!_2}+\left(1-\frac{1}{x}\right)^{^1\!\!/\!_2}=x\]
+\end{fancybox}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+En primer lugar vamos a operar en la ecuación intentando eliminar las raíces cuadradas iniciales, para ello se eleva al cuadrado ambos miembros,
+\[\left(x-\frac{1}{x}\right)+\left(1-\frac{1}{x}\right)+2\sqrt{\left(x-\frac{1}{x}\right)\left(1-\frac{1}{x}\right)}=x^2\]
+\[x-\frac{1}{x}+1-\frac{1}{x}+2\sqrt{\frac{(x^2-1)\cdot(x-1)}{x^2}}=x^2\]
+\[x-\frac{1}{x}+\frac{2\sqrt{x^3-x^2-x+1}}{|x|}+1-\frac{1}{x}=x^2\]
+
+Podemos considerar resolver la ecuación con $x<0$ o con $x\geq 0$. Se considera esta segunda opción,
+\[x-\frac{2}{x}+\frac{2\sqrt{x^3-x^2-x+1}}{x}+1=x^2\]
+
+Consideramos ahora la $x$ como denominador común,
+\[x^2-2+2\sqrt{x^3-x^2-x-1}+x=x^3\]
+
+Se deja la raíz en el miembro de la izquierda,
+\[2\sqrt{x^3-x^2-x+1}=x^3-x^2-x+2\]
+
+En este punto, tuve la idea ``feliz'' de realizar el cambio de varible $x^3-x^2-x+1=a^2$, por lo tanto $x^3-x^2-x+2=a^2+1$, resultando entonces,
+\[2a=a^2+1\Rightarrow a^2-2a+1=0\Rightarrow (a-1)^2=0\Rightarrow a=1\]
+
+Se procede entonces a deshacer el cambio de variable, resultando
+\[x^3-x^2-x+1=1\Rightarrow x(x^2-x-1)=0\Rightarrow \begin{cases}x=0\\[2mm]x^2-x-1=0\end{cases}\]
+\[x^2-x-1=0\Rightarrow x=\frac{1\pm\sqrt{1+4}}{2}\Rightarrow \begin{cases}x=\dfrac{1+\sqrt{5}}{2}=\phi\approx 1.618\\[2mm]x=\dfrac{1-\sqrt{5}}{2}<0\Rightarrow \textrm{No vale pues }x\geq0\end{cases}\]
+
+Por lo tanto la solución buscada resulta $\boxed{x=\phi\approx 1.618}$ denominado \emph{número áureo}.
+
+
+
+
+
+\end{document}
