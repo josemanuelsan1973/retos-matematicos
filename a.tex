@@ -1,16 +1,12 @@
 \documentclass[11pt]{article}
-% decent example of doing mathematics and proofs in LaTeX.
-% An Incredible degree of information can be found at
-% http://en.wikibooks.org/wiki/LaTeX/Mathematics
 
-% Use wide margins, but not quite so wide as fullpage.sty
 \marginparwidth 0.5in 
 \oddsidemargin 0.25in 
 \evensidemargin 0.25in 
 \marginparsep 0.25in
 \topmargin -1in 
-\textwidth 6in \textheight 9.6in
-% That's about enough definitions
+\textwidth 6in 
+\textheight 9.6in
 
 \usepackage{amsmath}
 \usepackage{upgreek}
@@ -57,11 +53,6 @@
 	boxrule=1pt,arc=8pt,boxsep=0pt,
 	left=0.8em,right=0.8em,top=1ex,bottom=1ex,colback=verdeodi!20,colframe=verdeodi,#1
 }
-
-
-
-
-
 
 \makeatletter%%%%%%%%para referenciar ecuaciones en línea
 \newcommand*{\inlineequation}[2][]{%
@@ -129,9 +120,5 @@ Se procede entonces a deshacer el cambio de variable, resultando
 \[x^2-x-1=0\Rightarrow x=\frac{1\pm\sqrt{1+4}}{2}\Rightarrow \begin{cases}x=\dfrac{1+\sqrt{5}}{2}=\phi\approx 1.618\\[2mm]x=\dfrac{1-\sqrt{5}}{2}<0\Rightarrow \textrm{No vale pues }x\geq0\end{cases}\]
 
 Por lo tanto la solución buscada resulta $\boxed{x=\phi\approx 1.618}$ denominado \emph{número áureo}.
-
-
-
-
 
 \end{document}
